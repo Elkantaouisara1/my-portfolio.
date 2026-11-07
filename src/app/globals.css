@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-blush text-ink antialiased;
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(0, 113, 152, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 113, 152, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: center top;
+}
+
+.portfolio-card {
+  border-color: rgba(130, 206, 249, 0.55);
+  box-shadow: 0 16px 42px -26px rgba(0, 113, 152, 0.22);
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: #5CAFE7;
+  box-shadow: 0 24px 48px -26px rgba(0, 113, 152, 0.3);
+}
+
+.float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card:hover {
+    transform: none;
+  }
+}
+
+::selection {
+  background: #82CEF9;
+  color: #007198;
+}
